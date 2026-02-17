@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+	<title xml:lang="ko">주사위 모듈</title>
+	<description xml:lang="ko">ringmaster/dicecalc 라이브러리를 이용해서 라이믹스의 글이나 댓글 본문에서 {dicestring} 형태를 변환하는 모듈</description>
+	<version>1.0.0</version>
+	<date>2026-02-17</date>
+	<category>service</category>
+	<author email_address="lastorder@lastorder.xyz" link="https://lastorder.xyz">
+		<name xml:lang="ko">Lastorder-DC</name>
+	</author>
+</module>
