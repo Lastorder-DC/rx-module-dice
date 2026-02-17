@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+	<grants>
+	</grants>
+	<actions>
+		<!-- 관리자 액션 -->
+		<action name="dispDiceAdminConfig" class="Controllers\Admin" menu-name="dice" admin-index="true" />
+		<action name="procDiceAdminInsertConfig" class="Controllers\Admin" />
+	</actions>
+	<!-- 이벤트 핸들러 (트리거) 선언 -->
+	<eventHandlers>
+		<eventHandler before="document.insertDocument" class="Controllers\EventHandlers" method="beforeInsertDocument" />
+		<eventHandler before="document.updateDocument" class="Controllers\EventHandlers" method="beforeUpdateDocument" />
+		<eventHandler before="comment.insertComment" class="Controllers\EventHandlers" method="beforeInsertComment" />
+		<eventHandler before="comment.updateComment" class="Controllers\EventHandlers" method="beforeUpdateComment" />
+	</eventHandlers>
+	<menus>
+		<menu name="dice" type="all">
+			<title xml:lang="ko">주사위</title>
+		</menu>
+	</menus>
+</module>
