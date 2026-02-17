@@ -93,21 +93,30 @@ class EventHandlers extends Base
 			return false;
 		}
 		
+		// module_srl을 mid로 변환
+		$oModuleModel = \ModuleModel::getInstance();
+		$mid = $oModuleModel->getMidByModuleSrl($module_srl);
+		
+		if (!$mid)
+		{
+			return false;
+		}
+		
 		$config = Config::getConfig();
 		
-		// 제외할 모듈 체크
+		// 제외할 모듈 체크 (설정은 mid 기준)
 		if (isset($config->excluded_modules) && is_array($config->excluded_modules))
 		{
-			if (in_array($module_srl, $config->excluded_modules))
+			if (in_array($mid, $config->excluded_modules))
 			{
 				return false;
 			}
 		}
 		
-		// 적용할 모듈이 지정된 경우
+		// 적용할 모듈이 지정된 경우 (설정은 mid 기준)
 		if (isset($config->enabled_modules) && is_array($config->enabled_modules) && count($config->enabled_modules) > 0)
 		{
-			return in_array($module_srl, $config->enabled_modules);
+			return in_array($mid, $config->enabled_modules);
 		}
 		
 		// 기본값: 모든 모듈에 적용
