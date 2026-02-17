@@ -45,8 +45,8 @@
 					@if(is_array($module_list))
 						@foreach($module_list as $module_srl => $module_info)
 							<label class="x_block">
-								<input type="checkbox" name="enabled_modules[]" value="{{ $module_srl }}" 
-									@checked(is_array($config->enabled_modules ?? null) && in_array($module_srl, $config->enabled_modules))
+								<input type="checkbox" name="enabled_modules[]" value="{{ $module_info->mid }}" 
+									@checked(is_array($config->enabled_modules ?? null) && in_array($module_info->mid, $config->enabled_modules))
 									onchange="if(this.checked) { document.querySelector('input[name=\'enabled_modules[]\'][value=all]').checked = false; }" />
 								{{ $module_info->mid }} ({{ $module_info->browser_title }})
 							</label>
@@ -65,8 +65,8 @@
 					@if(is_array($module_list))
 						@foreach($module_list as $module_srl => $module_info)
 							<label class="x_block">
-								<input type="checkbox" name="excluded_modules[]" value="{{ $module_srl }}" 
-									@checked(is_array($config->excluded_modules ?? null) && in_array($module_srl, $config->excluded_modules)) />
+								<input type="checkbox" name="excluded_modules[]" value="{{ $module_info->mid }}" 
+									@checked(is_array($config->excluded_modules ?? null) && in_array($module_info->mid, $config->excluded_modules)) />
 								{{ $module_info->mid }} ({{ $module_info->browser_title }})
 							</label>
 						@endforeach
